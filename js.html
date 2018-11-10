@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title></title>
+	<script   src="https://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div id="div1">
+    <ul></ul>
+</div>
+	<script type="text/javascript">
+	  var html="";
+      $.ajax({
+        type: "get",
+        url: "newApi.php",
+        dataType:"json",
+        success: function (data)
+        {
+        	console.log(data);
+          
+            for(var k in data)
+            {
+                   html+=`<li>${k} : ${data[k]}</li>`
+            }
+        
+            $("#div1 ul").html(html);
+        },
+        error:function () {
+            alert("1111");
+        }
+    });
+
+	</script>
+</body>
+</html>
